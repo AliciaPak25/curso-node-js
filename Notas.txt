@@ -1,0 +1,14 @@
+¿Qué es Node.js?
+
+Node NO es un lenguaje de programación, NO es un framework, NO es una web, NO es un servidor, NO es un hosting.
+Node.js es literalmente un entorno de ejecución de JavaScript. Esto quiere decir que es un sitio donde se puede ejecutar JavaScript.
+Esto significa que se pueden crear un montón de diferentes tipos de aplicaciones. Se puede ejecutar en el backend, en la terminal, en dispositivos como por ejemplo la Nintendo Switch que dentro está ejecutando Node; este un dispositivo que tiene embebido Node.js, NO es backend.
+Node.js es un entorno donde puedo ejecutar JavaScript sin ser un navegador, es de código abierto, es multiplataforma (funciona/se compila en un montón de plataformas: MacOS, Unix, Windows, Nintendo Switch, la tele), es asíncrono con in/out o entrada y salida de datos, y su arquitectura que está orientada a eventos.
+Node.js utiliza V8. V8 es el motor de JavaScript que utiliza el navegador Chrome. Chrome ejecuta muy rápido JavaScript. El motor V8 está totalmente separado de Chrome, y Node.js se aprovecha de ese motor que es totalmente de código abierto para también ejecutar JavaScript. Entonces, cuando utilizamos Node.js, ejecutamos JavaScript en el mismo motor que el de Chrome, pero NO en el mismo entorno. Una analogía de esto es tener el mismo motor de un coche en un taller y también en la calle.
+Node.js está orientado a eventos: esto quiere decir que es un modelo de programación en el que básicamente tiene un bucle (loop) en el que va manejando las solicitudes que le van llegando cada vez que tiene un evento. En lugar de esperar bloqueos, lo que hace es ejecutar tareas mientras espera respuestas de otras tareas que ha dejado por ahí. Pero lo hace en un solo hilo (thread). Node.js es monohilo, espera eventos para simular que hace puede hacer más de una cosa a la vez, pero no lo hace. Solo hace una cosa a la vez, pero gracias a estar basado en eventos va esperando que ocurran cosas, deja una cosa esperando, sigue con otra y luego retoma la anterior cuando esta termina.
+
+Asíncrono vs síncrono:
+
+Node.js es monohilo (solo tiene un proceso) y está basado en eventos.
+Podemos hacer muchas cosas de forma síncrona y que, por lo tanto, van a bloquear el proceso o asíncrona.
+Cuando es asíncrona, va a utilizar la arquitectura de eventos donde va hacer un sistema de lectura/escritura y mientras está leyendo, va a esperar a que termine eso que está totalmente separado del hilo y entonces luego lo va a recibir.
