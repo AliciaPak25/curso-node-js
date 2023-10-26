@@ -7,8 +7,22 @@ Node.js es un entorno donde puedo ejecutar JavaScript sin ser un navegador, es d
 Node.js utiliza V8. V8 es el motor de JavaScript que utiliza el navegador Chrome. Chrome ejecuta muy rápido JavaScript. El motor V8 está totalmente separado de Chrome, y Node.js se aprovecha de ese motor que es totalmente de código abierto para también ejecutar JavaScript. Entonces, cuando utilizamos Node.js, ejecutamos JavaScript en el mismo motor que el de Chrome, pero NO en el mismo entorno. Una analogía de esto es tener el mismo motor de un coche en un taller y también en la calle.
 Node.js está orientado a eventos: esto quiere decir que es un modelo de programación en el que básicamente tiene un bucle (loop) en el que va manejando las solicitudes que le van llegando cada vez que tiene un evento. En lugar de esperar bloqueos, lo que hace es ejecutar tareas mientras espera respuestas de otras tareas que ha dejado por ahí. Pero lo hace en un solo hilo (thread). Node.js es monohilo, espera eventos para simular que hace puede hacer más de una cosa a la vez, pero no lo hace. Solo hace una cosa a la vez, pero gracias a estar basado en eventos va esperando que ocurran cosas, deja una cosa esperando, sigue con otra y luego retoma la anterior cuando esta termina.
 
+
 Asíncrono vs síncrono:
 
 Node.js es monohilo (solo tiene un proceso) y está basado en eventos.
 Podemos hacer muchas cosas de forma síncrona y que, por lo tanto, van a bloquear el proceso o asíncrona.
 Cuando es asíncrona, va a utilizar la arquitectura de eventos donde va hacer un sistema de lectura/escritura y mientras está leyendo, va a esperar a que termine eso que está totalmente separado del hilo y entonces luego lo va a recibir.
+
+
+Callbacks en Node.js:
+En la asincronía, se necesita algún tipo de mecanismo para asegurar que una vez que ha leído un archivo vaya a ejecutar el código porque si no, Node.js, no sabría en qué momento se ha terminado de leer el archivo. Como no lo sabe, para eso se utiliza un mecanismo que se llama callbacks.
+Los callbacks son funciones que se ejecutan cuando una tarea asíncrona ha terminado.
+Los callbacks están totalmente fuera del proceso principal y, por lo tanto, no los bloquea, los deja en espera.
+El callback se ejecuta cuando el evento termina.
+
+Promises:
+En muchos módulos de Node.js ya se puede utilizar el "/promises". De forma histórica, siempre Node.js ha utlizado callbacks, han sido la forma clásica porque antes no existían las promesas. Luego han ido migrando a promesas. Se recomienda ver en la documentación de Node.js cuáles módulos tienen promesas y cuáles no. Pero también existe una forma de transformar callbacks a promesas, porque ahora todo el mundo quiere utilizar promesas.
+Esto se hace con promisify de util. Ejemplo: const { promisify } = require('node:util').
+
+Ya sea promesas, async / await, cualquiera es mejor que síncrono. Sincrono siempre es el que da problemas porque bloquea y espera a que termine una tarea para seguir haciendo la siguiente. SIEMPRE hay que utilizar asincronía: async/await, promesas.
