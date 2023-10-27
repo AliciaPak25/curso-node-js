@@ -25,4 +25,4 @@ Promises:
 En muchos módulos de Node.js ya se puede utilizar el "/promises". De forma histórica, siempre Node.js ha utlizado callbacks, han sido la forma clásica porque antes no existían las promesas. Luego han ido migrando a promesas. Se recomienda ver en la documentación de Node.js cuáles módulos tienen promesas y cuáles no. Pero también existe una forma de transformar callbacks a promesas, porque ahora todo el mundo quiere utilizar promesas.
 Esto se hace con promisify de util. Ejemplo: const { promisify } = require('node:util').
 
-Ya sea promesas, async / await, cualquiera es mejor que síncrono. Sincrono siempre es el que da problemas porque bloquea y espera a que termine una tarea para seguir haciendo la siguiente. SIEMPRE hay que utilizar asincronía: async/await, promesas.
+Ya sea promesas, async / await, cualquiera es mejor que síncrono. Sincrono siempre es el que da problemas porque bloquea y espera a que termine una tarea para seguir haciendo la siguiente. SIEMPRE hay que utilizar asincronía: Callbacks, promesas, async/await.
